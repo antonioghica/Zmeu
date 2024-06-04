@@ -1,54 +1,8 @@
 #include<bits/stdc++.h>
-#include<queue>
-#include<vector>
-#include<iomanip>
 using namespace std;
 ifstream fin("zmeu.in");
 ofstream gout("zmeu.out");
-long long viz[101],n,m,x,y,z,pl,k,v[1001],v2[10001],k1,k2,a[101][101],c1,c2;
-vector<int> G[101];
-queue<int> q;
-void bfs(int x)
-{
-    v[x]=1;
-    q.push(x);
-    while(!q.empty())
-    {
-        k=q.front();
-        q.pop();
-        viz[k]=1;
-        for(int i=1;i<=n;++i)
-            if(!viz[i] && a[k][i])
-        {
-            v[i]=-v[k];
-            q.push(i);
-        }
-    }
-}
-int verifica()
-{
-    int ok=1;
-    for(int i=1;i<=n&&ok;i++)
-        for(int j=i+1;j<=n;j++)
-        if(v[i]==v[j]&&a[i][j]==1)
-         ok=0;
-        if(ok)
-    return 1;
-    return 0;
-}
-inline int palindrom(long long x)
-{
-    long long  inv=0,c=x;
-    while(x)
-    {
-        inv=inv*10+x%10;
-        x/=10;
-    }
-    if(inv==c)
-        return 1;
-    return 0;
-}
-
+long long x,y,c1,c2;
 int main()
 {
  int cnt=0,ok=0;
@@ -56,8 +10,6 @@ int main()
     c1=x/(2*y);
     gout<<c1<<endl;
     c2=x%(2*y);
- 
     gout<<2*y-c2;
-   
-
 }
+
